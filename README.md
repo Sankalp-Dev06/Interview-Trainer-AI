@@ -249,7 +249,7 @@ print(feedback['feedback'])
 python -m pytest tests/test_pipeline.py -v
 ```
 
-Tests requiring `faiss-cpu` are automatically skipped if the package is not installed.
+Test requiring `faiss-cpu` are automatically skipped if the package is not installed.
 
 ---
 
