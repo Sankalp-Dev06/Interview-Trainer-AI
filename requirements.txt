@@ -1,0 +1,33 @@
+# ============================================================
+# Interview Trainer Agent — Python Dependencies
+# IBM Cloud + IBM Granite (watsonx.ai) + RAG Stack
+# ============================================================
+# Install: pip install -r requirements.txt
+# IBM Cloud Lite tier compatible — all packages are free to use
+# ============================================================
+
+# ---- IBM Cloud & watsonx.ai (mandatory) --------------------
+ibm-watsonx-ai>=1.0.0          # IBM Granite LLM + IBM Slate Embeddings
+
+# ---- Vector Store ------------------------------------------
+faiss-cpu>=1.7.4               # FAISS vector index (CPU — compatible with IBM Cloud Lite)
+
+# ---- Embedding Fallback (dev/stub mode) --------------------
+sentence-transformers>=2.2.2   # Local embedding model when IBM creds absent
+torch>=2.0.0                   # Required by sentence-transformers
+
+# ---- Data & Configuration ----------------------------------
+pyyaml>=6.0                    # YAML config file parser
+numpy>=1.24.0                  # Numerical arrays for embeddings
+pandas>=1.5.3                  # Data manipulation and analytics
+
+# ---- Jupyter & Visualization --------------------------------
+notebook>=6.5.0                # Jupyter notebook runtime
+ipython>=8.0.0                 # IPython kernel
+matplotlib>=3.6.0              # Charts and visualizations
+ipywidgets>=8.0.0              # Interactive Jupyter widgets
+
+# ---- Utilities ---------------------------------------------
+tqdm>=4.65.0                   # Progress bars
+rich>=13.0.0                   # Rich console output
+python-dotenv>=1.0.0           # Load .env environment variables

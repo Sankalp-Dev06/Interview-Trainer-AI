@@ -1,0 +1,105 @@
+# ============================================================
+# Interview Trainer Agent - Configuration File
+# IBM Cloud + IBM Granite (watsonx.ai)
+# ============================================================
+
+# ---- IBM Cloud Credentials --------------------------------
+ibm_cloud:
+  api_key: "${IBM_CLOUD_API_KEY}"           # Set in environment variable
+  region: "us-south"                         # IBM Cloud region
+  resource_instance_id: "${IBM_COS_INSTANCE_ID}"  # IBM Cloud Object Storage
+
+# ---- IBM watsonx.ai Settings ------------------------------
+watsonx:
+  url: "https://us-south.ml.cloud.ibm.com"
+  project_id: "${WATSONX_PROJECT_ID}"       # Your watsonx.ai project ID
+  api_key: "${IBM_CLOUD_API_KEY}"
+
+  # IBM Granite Model Selection
+  llm:
+    model_id: "ibm/granite-13b-chat-v2"     # Primary: IBM Granite Chat model
+    fallback_model_id: "ibm/granite-3-8b-instruct"
+    parameters:
+      max_new_tokens: 1024
+      min_new_tokens: 50
+      temperature: 0.7
+      top_p: 0.9
+      top_k: 50
+      repetition_penalty: 1.1
+      decoding_method: "sample"             # "greedy" for deterministic output
+
+  # Embedding Model
+  embedding:
+    model_id: "ibm/slate-125m-english-rtrvr"   # IBM Slate embedding model
+    batch_size: 32
+    normalize_embeddings: true
+
+# ---- RAG Pipeline Settings --------------------------------
+rag:
+  # Vector Store (local FAISS for lite/free tier)
+  vector_store:
+    type: "faiss"                            # "faiss" (local) or "ibm_watson_discovery"
+    index_path: "data/embeddings/faiss_index"
+    top_k: 5                                 # Number of documents to retrieve
+    similarity_threshold: 0.65              # Minimum similarity score
+
+  # Document chunking
+  chunking:
+    chunk_size: 512
+    chunk_overlap: 64
+    separator: "\n\n"
+
+  # Prompt template
+  prompt:
+    system_template: |
+      You are an expert Interview Trainer AI powered by IBM Granite.
+      You help candidates prepare thoroughly for job interviews.
+      Using the retrieved context below, provide detailed, actionable,
+      and professional interview preparation advice.
+      Always structure your response clearly and include:
+      - Relevant interview questions
+      - Model answers using STAR framework where applicable
+      - Specific improvement tips
+      - Industry-specific expectations
+    context_template: "Context:\n{context}\n\nQuestion: {question}\n\nAnswer:"
+    max_context_tokens: 2000
+
+# ---- Application Settings ---------------------------------
+app:
+  name: "Interview Trainer Agent"
+  version: "1.0.0"
+  description: "RAG-powered interview preparation system using IBM Granite"
+
+  # Session configuration
+  session:
+    max_questions_per_session: 10
+    question_difficulty_progression: true   # Start easy, advance to harder
+    include_follow_ups: true
+
+  # Output settings
+  output:
+    format: "markdown"                       # "markdown" or "json"
+    save_session: true
+    output_dir: "outputs/sessions"
+    include_scores: true
+
+# ---- Data Settings ----------------------------------------
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  embeddings_dir: "data/embeddings"
+  supported_roles:
+    - "software_engineer"
+    - "data_scientist"
+    - "product_manager"
+    - "devops_engineer"
+  supported_levels:
+    - "entry"
+    - "mid"
+    - "senior"
+
+# ---- Logging ----------------------------------------------
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_file: "outputs/logs/interview_trainer.log"

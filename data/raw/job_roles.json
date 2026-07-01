@@ -1,0 +1,189 @@
+{
+  "version": "1.0",
+  "roles": {
+    "software_engineer": {
+      "display_name": "Software Engineer",
+      "aliases": ["SWE", "Developer", "Backend Engineer", "Frontend Engineer", "Full Stack Engineer"],
+      "levels": {
+        "entry": {
+          "label": "Entry Level",
+          "yoe_range": "0-2 years",
+          "typical_titles": ["Junior Developer", "Associate Engineer", "Software Engineer I"],
+          "core_skills": ["Data Structures & Algorithms", "OOP", "Version Control (Git)", "Basic SQL", "REST APIs", "One programming language proficiency"],
+          "soft_skills": ["Communication", "Coachability", "Curiosity", "Team player"],
+          "interview_rounds": ["Coding screen (LeetCode-style)", "Technical phone screen", "Onsite: 2-3 coding + 1 behavioral"],
+          "key_companies": ["TCS", "Infosys", "Wipro", "Cognizant", "Accenture", "IBM", "Capgemini"]
+        },
+        "mid": {
+          "label": "Mid Level",
+          "yoe_range": "3-6 years",
+          "typical_titles": ["Software Engineer II", "SDE II", "Senior Associate", "Software Developer"],
+          "core_skills": ["System Design (basics)", "Testing & TDD", "Cloud fundamentals (AWS/GCP/Azure/IBM Cloud)", "Performance optimization", "Mentoring juniors"],
+          "soft_skills": ["Ownership", "Cross-team collaboration", "Technical communication", "Initiative"],
+          "interview_rounds": ["Coding screen", "System design round", "Behavioral (STAR)", "Hiring manager interview"],
+          "key_companies": ["Amazon", "Microsoft", "Google", "IBM", "Salesforce", "Adobe", "Flipkart"]
+        },
+        "senior": {
+          "label": "Senior Level",
+          "yoe_range": "7+ years",
+          "typical_titles": ["Senior Engineer", "SDE III", "Staff Engineer", "Lead Engineer"],
+          "core_skills": ["Advanced System Design", "Architecture patterns", "Technical leadership", "Cross-functional influence", "Production incident management"],
+          "soft_skills": ["Leadership without authority", "Strategic thinking", "Mentorship at scale", "Executive communication"],
+          "interview_rounds": ["Architecture design", "Leadership & behavioral", "Coding (optional)", "Bar raiser round"],
+          "key_companies": ["FAANG", "Stripe", "Databricks", "Snowflake", "IBM Research"]
+        }
+      },
+      "preparation_strategy": {
+        "entry": {
+          "focus_areas": ["LeetCode Easy/Medium (Arrays, Strings, Trees, DP)", "Core CS fundamentals", "1-2 side projects with GitHub"],
+          "timeline_weeks": 6,
+          "daily_plan": {
+            "weekday": "2 LeetCode problems + 30 min CS fundamentals review",
+            "weekend": "1 system design read + 1 mock behavioral interview"
+          },
+          "resources": ["Cracking the Coding Interview", "LeetCode Blind 75", "CS50 (Harvard)", "NeetCode.io"]
+        },
+        "mid": {
+          "focus_areas": ["System design patterns", "Distributed systems basics", "Behavioral STAR bank (10+ stories)", "Cloud certifications"],
+          "timeline_weeks": 8,
+          "daily_plan": {
+            "weekday": "1 LeetCode medium + 30 min system design study",
+            "weekend": "Full system design practice + mock interview"
+          },
+          "resources": ["Designing Data-Intensive Applications (DDIA)", "System Design Primer (GitHub)", "Grokking System Design", "Pramp.com for mocks"]
+        },
+        "senior": {
+          "focus_areas": ["Large-scale system architecture", "Leadership narratives", "Technical strategy communication", "Past project deep-dives"],
+          "timeline_weeks": 4,
+          "daily_plan": {
+            "weekday": "Review past projects for STAR stories + 1 architecture case study",
+            "weekend": "Full mock interview (architecture + leadership) with peer"
+          },
+          "resources": ["DDIA", "Google SRE Book", "Staff Engineer (Will Larson)", "Engineering blogs (Netflix, Airbnb, Stripe)"]
+        }
+      }
+    },
+    "data_scientist": {
+      "display_name": "Data Scientist",
+      "aliases": ["ML Engineer", "Machine Learning Engineer", "AI Engineer", "Research Scientist", "Applied Scientist"],
+      "levels": {
+        "entry": {
+          "label": "Entry Level",
+          "yoe_range": "0-2 years",
+          "typical_titles": ["Junior Data Scientist", "Data Analyst", "Associate ML Engineer"],
+          "core_skills": ["Python (Pandas, NumPy, Sklearn)", "Statistics fundamentals", "SQL", "Data visualization (Matplotlib, Seaborn)", "Basic ML algorithms"],
+          "soft_skills": ["Analytical thinking", "Communication of insights", "Curiosity", "Attention to detail"],
+          "interview_rounds": ["Coding screen (Python/SQL)", "Case study / take-home project", "Statistics/ML fundamentals round", "Behavioral"],
+          "key_companies": ["IBM", "Cognizant", "TCS Digital", "Mu Sigma", "Analytics Vidhya partners"]
+        },
+        "mid": {
+          "label": "Mid Level",
+          "yoe_range": "3-6 years",
+          "typical_titles": ["Data Scientist II", "ML Engineer II", "Senior Analyst"],
+          "core_skills": ["Advanced ML (XGBoost, LightGBM, Neural Nets)", "Feature engineering", "Model deployment (Flask/FastAPI)", "Experiment design (A/B testing)", "MLflow/Kubeflow basics"],
+          "soft_skills": ["Stakeholder management", "Translating insights to decisions", "Project ownership"],
+          "interview_rounds": ["ML system design", "Coding (Python/SQL)", "Case study", "Behavioral (STAR)"],
+          "key_companies": ["Amazon", "Walmart", "Swiggy", "Zomato", "PayPal", "IBM Data & AI"]
+        },
+        "senior": {
+          "label": "Senior Level",
+          "yoe_range": "7+ years",
+          "typical_titles": ["Senior Data Scientist", "Principal ML Engineer", "Lead AI Scientist"],
+          "core_skills": ["MLOps architecture", "LLM fine-tuning", "Research publication ability", "Team leadership", "Data strategy"],
+          "soft_skills": ["Vision-setting", "Cross-org influence", "Hiring and growing talent"],
+          "interview_rounds": ["ML system design (end-to-end)", "Research paper discussion", "Leadership & culture", "Executive presentation"],
+          "key_companies": ["Google DeepMind", "OpenAI", "Microsoft Research", "IBM Research", "Meta AI"]
+        }
+      },
+      "preparation_strategy": {
+        "entry": {
+          "focus_areas": ["Statistics (prob, distributions, hypothesis testing)", "ML fundamentals (linear models to ensembles)", "Python data stack", "Kaggle competitions"],
+          "timeline_weeks": 8,
+          "resources": ["Hands-On ML with Scikit-Learn & TensorFlow", "StatQuest YouTube", "Kaggle Learn", "fast.ai"]
+        },
+        "mid": {
+          "focus_areas": ["Advanced ML algorithms", "A/B testing design", "SQL window functions", "MLOps basics", "Business case studies"],
+          "timeline_weeks": 6,
+          "resources": ["Applied Predictive Modeling", "Designing ML Systems (Chip Huyen)", "Mode Analytics SQL School"]
+        },
+        "senior": {
+          "focus_areas": ["Research papers (transformers, LLMs)", "MLOps architecture", "Leadership STAR stories", "Product sense for ML"],
+          "timeline_weeks": 4,
+          "resources": ["Designing ML Systems", "Papers with Code", "ML Engineering (Andriy Burkov)", "DeepLearning.AI courses"]
+        }
+      }
+    },
+    "product_manager": {
+      "display_name": "Product Manager",
+      "aliases": ["PM", "APM", "Senior PM", "GPM", "Product Owner"],
+      "levels": {
+        "entry": {
+          "label": "Entry Level",
+          "yoe_range": "0-3 years",
+          "typical_titles": ["Associate PM", "Product Analyst", "Junior PM"],
+          "core_skills": ["Requirements gathering", "User story writing", "Agile/Scrum", "Data analysis basics", "Wireframing (Figma/Balsamiq)"],
+          "soft_skills": ["Communication", "Empathy", "Prioritization", "Curiosity"],
+          "interview_rounds": ["Product design case", "Estimation case", "Behavioral", "Product sense"],
+          "key_companies": ["IBM", "Flipkart", "Myntra", "Paytm", "OLA", "Freshworks"]
+        },
+        "mid": {
+          "label": "Mid Level",
+          "yoe_range": "3-7 years",
+          "typical_titles": ["Product Manager", "Senior PM"],
+          "core_skills": ["Roadmap management", "OKRs", "Data-driven decisions", "Go-to-market strategy", "Stakeholder management", "Technical depth"],
+          "soft_skills": ["Strategic thinking", "Influence", "Leadership", "Cross-functional collaboration"],
+          "interview_rounds": ["Product strategy", "Metrics & analytics", "Technical PM round", "Leadership behavioral"],
+          "key_companies": ["Amazon", "Google", "Microsoft", "Adobe", "Intuit", "IBM Cloud"]
+        }
+      },
+      "preparation_strategy": {
+        "entry": {
+          "focus_areas": ["Product design frameworks (Jobs to be Done)", "Estimation (Fermi questions)", "Behavioral STAR stories", "App teardown exercises"],
+          "timeline_weeks": 6,
+          "resources": ["Cracking the PM Interview", "Decode & Conquer", "Lenny's Newsletter", "Product School"]
+        },
+        "mid": {
+          "focus_areas": ["Metrics frameworks (HEART, AARRR)", "SQL for product analytics", "OKR design", "GTM strategy"],
+          "timeline_weeks": 4,
+          "resources": ["Inspired (Marty Cagan)", "Continuous Discovery Habits", "Reforge programs"]
+        }
+      }
+    },
+    "devops_engineer": {
+      "display_name": "DevOps Engineer",
+      "aliases": ["SRE", "Platform Engineer", "Cloud Engineer", "Infrastructure Engineer"],
+      "levels": {
+        "entry": {
+          "label": "Entry Level",
+          "yoe_range": "0-2 years",
+          "typical_titles": ["Junior DevOps Engineer", "Cloud Support Engineer", "Infrastructure Associate"],
+          "core_skills": ["Linux administration", "Docker", "CI/CD basics (Jenkins/GitHub Actions)", "Shell scripting", "Basic Kubernetes"],
+          "soft_skills": ["Problem solving", "Documentation", "Communication"],
+          "interview_rounds": ["Linux/scripting screen", "CI/CD design", "Incident response case", "Behavioral"],
+          "key_companies": ["IBM Cloud", "TCS", "HCL", "Mindtree", "Thoughtworks"]
+        },
+        "mid": {
+          "label": "Mid Level",
+          "yoe_range": "3-6 years",
+          "typical_titles": ["DevOps Engineer II", "Cloud Infrastructure Engineer", "SRE"],
+          "core_skills": ["Kubernetes (production)", "Terraform/Ansible IaC", "Observability (Prometheus, Grafana, ELK)", "Multi-cloud architecture", "Security hardening"],
+          "soft_skills": ["Reliability mindset", "Cross-team collaboration", "On-call ownership"],
+          "interview_rounds": ["Infrastructure design", "Kubernetes scenario", "Incident management case", "Behavioral"],
+          "key_companies": ["Amazon AWS", "Google Cloud", "Atlassian", "HashiCorp", "Elastic", "IBM"]
+        }
+      },
+      "preparation_strategy": {
+        "entry": {
+          "focus_areas": ["Docker and Kubernetes fundamentals", "Linux commands and shell scripting", "CI/CD pipeline design", "Cloud provider basics (IBM Cloud/AWS/GCP)"],
+          "timeline_weeks": 6,
+          "resources": ["Docker documentation", "Kubernetes.io tutorials", "Linux Command Line (William Shotts)", "A Cloud Guru"]
+        },
+        "mid": {
+          "focus_areas": ["Kubernetes in production (HA, networking, security)", "Infrastructure as Code (Terraform)", "SRE principles", "Observability stack"],
+          "timeline_weeks": 6,
+          "resources": ["Google SRE Book", "Kubernetes in Action", "Terraform Up & Running", "IBM Cloud documentation"]
+        }
+      }
+    }
+  }
+}

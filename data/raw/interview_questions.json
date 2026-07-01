@@ -1,0 +1,490 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-01-01",
+  "categories": {
+    "software_engineer": {
+      "entry": {
+        "technical": [
+          {
+            "id": "SE-E-T-001",
+            "question": "What is the difference between a stack and a queue?",
+            "category": "Data Structures",
+            "difficulty": "easy",
+            "model_answer": "A stack follows LIFO (Last In First Out) — the last element added is the first to be removed, like a pile of plates. A queue follows FIFO (First In First Out) — the first element added is the first removed, like a line at a ticket counter. Stacks use push/pop operations; queues use enqueue/dequeue. Use cases: stacks for undo operations, function call management; queues for task scheduling, BFS traversal.",
+            "follow_up": ["Can you implement a stack using two queues?", "When would you use a deque?"],
+            "keywords": ["LIFO", "FIFO", "push", "pop", "enqueue", "dequeue"],
+            "improvement_tip": "Always relate abstract data structures to real-world use cases to demonstrate practical understanding."
+          },
+          {
+            "id": "SE-E-T-002",
+            "question": "Explain the concept of Object-Oriented Programming (OOP) and its four pillars.",
+            "category": "Programming Concepts",
+            "difficulty": "easy",
+            "model_answer": "OOP is a programming paradigm based on objects that encapsulate data and behavior. The four pillars are: 1) Encapsulation — bundling data and methods, hiding internal state. 2) Abstraction — exposing only necessary details, hiding complexity. 3) Inheritance — deriving new classes from existing ones to reuse code. 4) Polymorphism — same interface, different implementations (method overriding and overloading).",
+            "follow_up": ["Give an example of polymorphism in Python.", "How does inheritance differ from composition?"],
+            "keywords": ["encapsulation", "abstraction", "inheritance", "polymorphism"],
+            "improvement_tip": "Support each pillar with a concise code example to show hands-on knowledge."
+          },
+          {
+            "id": "SE-E-T-003",
+            "question": "What is the time complexity of binary search?",
+            "category": "Algorithms",
+            "difficulty": "easy",
+            "model_answer": "Binary search has a time complexity of O(log n) because it halves the search space with each comparison. It requires the input array to be sorted. Space complexity is O(1) for iterative and O(log n) for recursive due to the call stack.",
+            "follow_up": ["What are the prerequisites for binary search?", "How would you implement binary search recursively?"],
+            "keywords": ["O(log n)", "sorted array", "divide and conquer"],
+            "improvement_tip": "Mention both time and space complexity. Interviewers value complete analysis."
+          },
+          {
+            "id": "SE-E-T-004",
+            "question": "What is the difference between == and === in JavaScript?",
+            "category": "JavaScript",
+            "difficulty": "easy",
+            "model_answer": "== (loose equality) compares values after type coercion — e.g., '5' == 5 is true. === (strict equality) compares both value and type without coercion — '5' === 5 is false. Best practice is to always use === to avoid unexpected type conversion bugs.",
+            "follow_up": ["What is type coercion?", "When might you intentionally use ==?"],
+            "keywords": ["type coercion", "strict equality", "loose equality"],
+            "improvement_tip": "Provide concrete examples with output to illustrate the difference clearly."
+          },
+          {
+            "id": "SE-E-T-005",
+            "question": "Explain REST API and its key principles.",
+            "category": "Web Development",
+            "difficulty": "easy",
+            "model_answer": "REST (Representational State Transfer) is an architectural style for distributed systems. Key principles: 1) Statelessness — each request contains all context needed. 2) Client-Server separation. 3) Uniform Interface — standard HTTP methods (GET, POST, PUT, DELETE). 4) Layered System — intermediaries can be added. 5) Cacheable responses. RESTful APIs use resources identified by URLs and standard status codes.",
+            "follow_up": ["What is the difference between PUT and PATCH?", "How does REST differ from GraphQL?"],
+            "keywords": ["stateless", "HTTP methods", "resources", "URI"],
+            "improvement_tip": "Mention HTTP status codes (200, 201, 404, 500) and when to use each method."
+          }
+        ],
+        "behavioral": [
+          {
+            "id": "SE-E-B-001",
+            "question": "Tell me about yourself and why you want to be a software engineer.",
+            "category": "Introduction",
+            "difficulty": "easy",
+            "model_answer": "Structure with Present-Past-Future: Present — briefly describe your current status (student/recent graduate, tech stack you know). Past — key projects or experiences that built your skills. Future — why this role and company, how your goals align. Keep it under 2 minutes and end with enthusiasm for the role.",
+            "follow_up": ["What's your greatest technical achievement so far?"],
+            "keywords": ["self-introduction", "motivation", "career goals"],
+            "improvement_tip": "Tailor your answer to the specific company. Research their tech stack and mention it."
+          },
+          {
+            "id": "SE-E-B-002",
+            "question": "Describe a time you faced a technical challenge and how you resolved it.",
+            "category": "Problem Solving",
+            "difficulty": "easy",
+            "model_answer": "Use the STAR method: Situation — describe the project/context. Task — what was your responsibility. Action — the steps you took (debugging, researching, collaborating). Result — the outcome, quantified if possible (e.g., 'reduced load time by 40%'). Be specific about the technical tools and decisions made.",
+            "follow_up": ["What would you do differently?", "How did this improve your problem-solving approach?"],
+            "keywords": ["STAR method", "problem-solving", "debugging"],
+            "improvement_tip": "Quantify results whenever possible. Numbers make stories compelling."
+          }
+        ],
+        "hr": [
+          {
+            "id": "SE-E-H-001",
+            "question": "What are your salary expectations?",
+            "category": "Compensation",
+            "difficulty": "easy",
+            "model_answer": "Research the market rate first. Respond: 'Based on my research for this role in [city/region] and considering my skill set, I am targeting a range of [X-Y]. However, I am open to discussing the full compensation package including benefits.' Avoid giving a single number first; let the range give flexibility.",
+            "follow_up": ["Are you negotiable?", "What benefits are most important to you?"],
+            "keywords": ["salary range", "market research", "negotiation"],
+            "improvement_tip": "Research salaries on LinkedIn, Glassdoor, and Levels.fyi before the interview."
+          },
+          {
+            "id": "SE-E-H-002",
+            "question": "Where do you see yourself in 5 years?",
+            "category": "Career Planning",
+            "difficulty": "easy",
+            "model_answer": "Align your answer with the company's growth opportunities. Example: 'In 5 years, I see myself growing from a developer role into a technical lead or architect, having contributed to significant product features. I want to deepen my expertise in [relevant area] and mentor junior engineers. I see [Company] as the right environment to achieve this given your investment in [technology/culture].'",
+            "follow_up": ["What skills do you need to develop to reach that goal?"],
+            "keywords": ["career growth", "leadership", "long-term vision"],
+            "improvement_tip": "Show ambition but also loyalty. Companies want candidates who see a future with them."
+          }
+        ]
+      },
+      "mid": {
+        "technical": [
+          {
+            "id": "SE-M-T-001",
+            "question": "Explain the CAP theorem in distributed systems.",
+            "category": "System Design",
+            "difficulty": "medium",
+            "model_answer": "The CAP theorem states that a distributed system can only guarantee two of three properties simultaneously: Consistency (every read receives the most recent write), Availability (every request gets a response, even if not the latest data), and Partition Tolerance (system continues operating despite network partitions). In practice, partition tolerance is non-negotiable for distributed systems, so the trade-off is between C and A. Examples: HBase (CP), Cassandra (AP), traditional RDBMS (CA in single-node).",
+            "follow_up": ["How does your current system handle network partitions?", "What is the PACELC theorem?"],
+            "keywords": ["CAP", "consistency", "availability", "partition tolerance"],
+            "improvement_tip": "Give concrete database examples for each combination to show practical knowledge."
+          },
+          {
+            "id": "SE-M-T-002",
+            "question": "How does garbage collection work in Java/Python? What are the common GC algorithms?",
+            "category": "Memory Management",
+            "difficulty": "medium",
+            "model_answer": "Garbage collection automatically reclaims memory from objects no longer referenced. In Java, the JVM uses generational GC: young generation (Eden, Survivor spaces with Minor GC), old generation (Major GC). Common algorithms: Mark-and-Sweep, G1 GC (regions, predictable pauses), ZGC (low latency). In Python, CPython uses reference counting plus a cyclic garbage collector for circular references.",
+            "follow_up": ["How do you tune JVM garbage collection?", "What causes memory leaks despite GC?"],
+            "keywords": ["generational GC", "mark-and-sweep", "reference counting", "memory management"],
+            "improvement_tip": "Mention GC tuning flags or profiling tools (e.g., VisualVM, memory_profiler) to show practical depth."
+          },
+          {
+            "id": "SE-M-T-003",
+            "question": "Design a URL shortening service like bit.ly.",
+            "category": "System Design",
+            "difficulty": "medium",
+            "model_answer": "Requirements: shorten long URLs, redirect, analytics. Components: 1) API layer — POST /shorten returns short code, GET /{code} redirects. 2) ID generation — base62 encoding of auto-increment DB ID or MD5 hash. 3) Database — key-value store (Redis for cache, SQL/NoSQL for persistence). 4) Redirection — 301 (permanent) vs 302 (temporary). 5) Scale — CDN for read-heavy traffic, sharding for DB. Handle collisions, expiry, custom aliases. Capacity: 100M URLs/day, read/write ratio ~100:1.",
+            "follow_up": ["How would you handle 100M requests per day?", "How do you prevent abuse/spam URLs?"],
+            "keywords": ["system design", "base62", "Redis", "CDN", "sharding"],
+            "improvement_tip": "Always clarify requirements (scale, features, constraints) before designing. Show a structured approach."
+          },
+          {
+            "id": "SE-M-T-004",
+            "question": "What are SOLID principles? Give examples.",
+            "category": "Software Design",
+            "difficulty": "medium",
+            "model_answer": "SOLID: S — Single Responsibility (a class has one reason to change). O — Open/Closed (open for extension, closed for modification; use interfaces/abstract classes). L — Liskov Substitution (subclasses must be substitutable for base classes). I — Interface Segregation (many small interfaces over one large one). D — Dependency Inversion (depend on abstractions, not concretions). SOLID reduces coupling, improves testability, and eases maintenance.",
+            "follow_up": ["Which SOLID principle do you find hardest to apply in practice?", "How does DI relate to SOLID?"],
+            "keywords": ["SOLID", "single responsibility", "open/closed", "dependency injection"],
+            "improvement_tip": "Pair each principle with an anti-pattern violation and its refactored solution."
+          },
+          {
+            "id": "SE-M-T-005",
+            "question": "Explain database indexing. When should you use composite indexes?",
+            "category": "Databases",
+            "difficulty": "medium",
+            "model_answer": "An index is a data structure (typically B-tree) that improves query speed at the cost of storage and write performance. Indexes should be created on columns used in WHERE, JOIN, ORDER BY, GROUP BY. Composite indexes: use when queries filter on multiple columns together; the column order matters (left-prefix rule). Example: index on (last_name, first_name) helps queries on last_name or (last_name, first_name) but NOT first_name alone. Use EXPLAIN to analyze query plans.",
+            "follow_up": ["What is a covering index?", "How do you identify slow queries in production?"],
+            "keywords": ["B-tree index", "composite index", "query optimization", "EXPLAIN"],
+            "improvement_tip": "Discuss trade-offs (read vs write performance) to show database optimization maturity."
+          }
+        ],
+        "behavioral": [
+          {
+            "id": "SE-M-B-001",
+            "question": "Describe a time you led a project or mentored a junior team member.",
+            "category": "Leadership",
+            "difficulty": "medium",
+            "model_answer": "Use STAR: Situation — you were assigned a feature under a tight deadline. Task — coordinate a team of 3 engineers including a junior. Action — broke down tasks based on skill levels, held daily standups, provided code review feedback with explanations, unblocked the junior with pair programming. Result — shipped on time, the junior grew in confidence, and code quality improved per reviewer feedback.",
+            "follow_up": ["How did you handle a team disagreement?", "What's your approach to giving critical feedback?"],
+            "keywords": ["mentorship", "technical leadership", "delegation"],
+            "improvement_tip": "Emphasize how you grew others, not just your own contribution. That shows maturity."
+          },
+          {
+            "id": "SE-M-B-002",
+            "question": "Tell me about a time you had to make a difficult technical decision under uncertainty.",
+            "category": "Decision Making",
+            "difficulty": "medium",
+            "model_answer": "STAR: Situation — migrating legacy service, two options (refactor vs rewrite). Task — decide path with limited documentation. Action — conducted spike to estimate effort, consulted stakeholders, weighed risks, created a decision document with pros/cons, proposed incremental refactor with strangler-fig pattern. Result — migration completed with 30% less downtime than full rewrite estimation.",
+            "follow_up": ["How do you handle disagreement from your tech lead on a decision?"],
+            "keywords": ["decision-making", "risk assessment", "technical trade-offs"],
+            "improvement_tip": "Show your reasoning process, not just the outcome. Interviewers want to understand how you think."
+          }
+        ],
+        "hr": [
+          {
+            "id": "SE-M-H-001",
+            "question": "Why are you leaving your current role?",
+            "category": "Career Transition",
+            "difficulty": "medium",
+            "model_answer": "Keep it professional and forward-looking. Good answers: 'I am looking for more challenging technical problems / greater ownership / a larger scale system to work on.' Never badmouth your manager or complain solely about salary. Frame it as growth-seeking, not escape-seeking.",
+            "follow_up": ["What would you say if your current employer offered a counter?"],
+            "keywords": ["career transition", "professional growth", "positive framing"],
+            "improvement_tip": "Always end with what you are moving toward, not what you are leaving."
+          }
+        ]
+      },
+      "senior": {
+        "technical": [
+          {
+            "id": "SE-S-T-001",
+            "question": "How do you design for high availability and fault tolerance in a microservices architecture?",
+            "category": "Architecture",
+            "difficulty": "hard",
+            "model_answer": "High availability requires eliminating single points of failure: multi-region/AZ deployment, load balancing, health checks. Fault tolerance strategies: Circuit Breaker pattern (Hystrix/Resilience4j) to prevent cascade failures. Retry with exponential backoff and jitter. Bulkhead pattern to isolate failures. Saga pattern for distributed transactions. Service mesh (Istio) for observability. Regular chaos engineering (Netflix Chaos Monkey) to test resilience. Monitor with SLOs/SLAs, alerting on error budgets.",
+            "follow_up": ["How do you handle a split-brain scenario?", "Explain the difference between circuit breaker and retry."],
+            "keywords": ["circuit breaker", "saga pattern", "chaos engineering", "SLO", "bulkhead"],
+            "improvement_tip": "Quantify the availability target (e.g., 99.99% = 52 min/year downtime) to show business alignment."
+          },
+          {
+            "id": "SE-S-T-002",
+            "question": "Explain Event-Driven Architecture and when you would use it over synchronous REST.",
+            "category": "Architecture",
+            "difficulty": "hard",
+            "model_answer": "EDA decouples producers and consumers via events (messages). Use cases: async workflows (order processing), fan-out notifications, audit logging, real-time analytics. Tools: Apache Kafka (durable, high-throughput), RabbitMQ (routing-heavy), AWS SNS/SQS. Advantages over REST: decoupling, scalability, replay capability. Drawbacks: eventual consistency, harder debugging, increased operational complexity. Use REST for simple request-response; EDA for workflows needing durability, scale, or loose coupling.",
+            "follow_up": ["How do you handle duplicate message delivery in Kafka?", "What is event sourcing?"],
+            "keywords": ["event-driven", "Kafka", "pub-sub", "CQRS", "event sourcing"],
+            "improvement_tip": "Always frame architectural decisions with trade-offs — show you understand there's no silver bullet."
+          }
+        ],
+        "behavioral": [
+          {
+            "id": "SE-S-B-001",
+            "question": "How do you drive technical alignment across multiple engineering teams?",
+            "category": "Leadership",
+            "difficulty": "hard",
+            "model_answer": "Establish shared principles: RFC/ADR (Architecture Decision Records) process for significant changes. Host tech guilds or communities of practice. Create internal tech radar for technology adoption. For alignment on standards: contribute to shared engineering guidelines, review across team PRs, run knowledge-sharing sessions. Show stakeholder management: translating technical needs into business value for product/exec audiences.",
+            "follow_up": ["How do you handle a team that resists adopting new standards?"],
+            "keywords": ["ADR", "RFC", "tech guild", "technical alignment", "stakeholder management"],
+            "improvement_tip": "Use specific tools and processes (ADR, RFC templates) — shows you operate at organizational scale."
+          }
+        ],
+        "hr": [
+          {
+            "id": "SE-S-H-001",
+            "question": "How do you stay current with technology trends while managing delivery responsibilities?",
+            "category": "Continuous Learning",
+            "difficulty": "hard",
+            "model_answer": "System: allocate dedicated learning time (e.g., 20% time, Friday afternoons). Sources: engineering blogs (DDIA, Martin Fowler, Netflix Tech Blog), podcasts (Software Engineering Daily), conferences (KubeCon, re:Invent), paper reading. Apply: run internal tech talks, propose POCs for evaluated technologies. Filter: use tech radar to distinguish adopt/trial/hold. Balance: set quarterly learning goals aligned with team/product roadmap.",
+            "follow_up": ["What technology have you evaluated and rejected recently? Why?"],
+            "keywords": ["continuous learning", "tech radar", "engineering culture"],
+            "improvement_tip": "Name specific resources — it shows genuine engagement, not a rehearsed answer."
+          }
+        ]
+      }
+    },
+    "data_scientist": {
+      "entry": {
+        "technical": [
+          {
+            "id": "DS-E-T-001",
+            "question": "What is the difference between supervised and unsupervised learning?",
+            "category": "Machine Learning Fundamentals",
+            "difficulty": "easy",
+            "model_answer": "Supervised learning uses labeled data to train a model (e.g., regression, classification). The model learns a mapping from input X to output Y. Examples: linear regression, SVM, random forests. Unsupervised learning finds patterns in unlabeled data without predefined outputs. Examples: k-means clustering (grouping similar items), PCA (dimensionality reduction). Key distinction: supervised needs labeled data (expensive/scarce); unsupervised can leverage vast unlabeled datasets.",
+            "follow_up": ["What is semi-supervised learning?", "When would you choose clustering over classification?"],
+            "keywords": ["supervised", "unsupervised", "labeled data", "classification", "clustering"],
+            "improvement_tip": "Always provide concrete business use-case examples for each learning type."
+          },
+          {
+            "id": "DS-E-T-002",
+            "question": "Explain overfitting and how to prevent it.",
+            "category": "Model Evaluation",
+            "difficulty": "easy",
+            "model_answer": "Overfitting occurs when a model learns noise/specifics of training data and fails to generalize to unseen data (high train accuracy, low test accuracy). Prevention techniques: 1) Cross-validation — k-fold CV for robust evaluation. 2) Regularization — L1 (Lasso, sparsity) and L2 (Ridge, weight decay). 3) Dropout — randomly deactivate neurons during training. 4) Early stopping — stop training when validation loss increases. 5) Data augmentation — increase training set diversity. 6) Simpler model — reduce complexity.",
+            "follow_up": ["What is the bias-variance trade-off?", "How does L1 regularization induce sparsity?"],
+            "keywords": ["overfitting", "regularization", "cross-validation", "dropout", "bias-variance"],
+            "improvement_tip": "Visualize the learning curve concept verbally — train loss decreasing but val loss increasing = overfitting."
+          },
+          {
+            "id": "DS-E-T-003",
+            "question": "What is the difference between precision and recall? When do you prioritize one over the other?",
+            "category": "Model Evaluation",
+            "difficulty": "easy",
+            "model_answer": "Precision = TP/(TP+FP) — of all predicted positives, how many are truly positive. Recall = TP/(TP+FN) — of all actual positives, how many did we catch. Prioritize recall in: medical diagnosis (missing cancer is worse than false alarm), fraud detection. Prioritize precision in: spam filters (false positive = legitimate email lost). F1 score = harmonic mean, balances both. Use AUC-ROC for threshold-independent evaluation.",
+            "follow_up": ["What is the F1 score?", "How do you adjust the precision-recall trade-off?"],
+            "keywords": ["precision", "recall", "F1 score", "confusion matrix", "threshold"],
+            "improvement_tip": "Always ground metrics in the business cost of false positives vs false negatives."
+          }
+        ],
+        "behavioral": [
+          {
+            "id": "DS-E-B-001",
+            "question": "Describe a data analysis project you are most proud of.",
+            "category": "Project Experience",
+            "difficulty": "easy",
+            "model_answer": "Structure: Problem — what business question were you solving? Data — source, size, quality issues encountered. Approach — EDA, feature engineering, model selection rationale. Result — measurable business impact (e.g., reduced churn by 15%, saved $200K). Lessons — what you learned. Emphasize your specific contribution. Mention tools used (Pandas, Sklearn, SQL, visualization libraries).",
+            "follow_up": ["What was the biggest data quality challenge?", "How did you communicate findings to non-technical stakeholders?"],
+            "keywords": ["data analysis", "business impact", "project ownership"],
+            "improvement_tip": "Quantify impact — numbers make your story compelling and memorable."
+          }
+        ],
+        "hr": [
+          {
+            "id": "DS-E-H-001",
+            "question": "How do you communicate complex data findings to non-technical executives?",
+            "category": "Communication",
+            "difficulty": "easy",
+            "model_answer": "Lead with business impact, not technical details. Use visualizations (clear charts, not confusion matrices for executives). Answer 'so what' first: 'Our model can save $2M annually by predicting equipment failure 2 weeks early.' Then explain how if asked. Use analogies for complex concepts. Tailor depth to the audience.",
+            "follow_up": ["What visualization tools do you use?"],
+            "keywords": ["stakeholder communication", "data storytelling", "executive presentation"],
+            "improvement_tip": "Practice the 'elevator pitch' version of every data project — 30 seconds, pure business value."
+          }
+        ]
+      },
+      "mid": {
+        "technical": [
+          {
+            "id": "DS-M-T-001",
+            "question": "Explain how gradient boosting works. Compare XGBoost and LightGBM.",
+            "category": "Advanced ML",
+            "difficulty": "medium",
+            "model_answer": "Gradient boosting is an ensemble method that builds trees sequentially, each correcting errors of the previous by fitting to the residuals (negative gradients of the loss function). XGBoost: level-wise tree growth, built-in regularization (L1/L2), handles sparse data, slower on large datasets. LightGBM: leaf-wise tree growth (deeper, more efficient), histogram-based splitting (faster), better memory efficiency, excellent for large datasets. Both support GPU training and custom loss functions.",
+            "follow_up": ["What is the difference between bagging and boosting?", "How do you tune XGBoost hyperparameters?"],
+            "keywords": ["gradient boosting", "XGBoost", "LightGBM", "ensemble", "residuals"],
+            "improvement_tip": "Discuss when to use tree-based models vs neural networks — shows architectural judgment."
+          },
+          {
+            "id": "DS-M-T-002",
+            "question": "How do you handle class imbalance in a dataset?",
+            "category": "Data Preprocessing",
+            "difficulty": "medium",
+            "model_answer": "Techniques: 1) Resampling — Oversample minority class (SMOTE generates synthetic samples), undersample majority. 2) Class weights — set class_weight='balanced' in Sklearn. 3) Threshold tuning — lower decision threshold to increase recall for minority class. 4) Algorithm choice — tree-based models handle imbalance better than linear models. 5) Evaluation — use precision-recall curve, F1, AUPRC over accuracy (misleading with imbalance).",
+            "follow_up": ["What is SMOTE and what are its limitations?", "How does class_weight affect the loss function?"],
+            "keywords": ["class imbalance", "SMOTE", "oversampling", "class weights", "AUPRC"],
+            "improvement_tip": "Always define the evaluation metric before applying techniques — it guides which technique to use."
+          }
+        ],
+        "behavioral": [
+          {
+            "id": "DS-M-B-001",
+            "question": "Tell me about a time your model performed poorly in production. What did you do?",
+            "category": "Production ML",
+            "difficulty": "medium",
+            "model_answer": "STAR: Situation — deployed a customer churn model that degraded after 3 months. Task — investigate and resolve performance drop. Action — analyzed feature drift (data distributions changed), added data validation pipeline, implemented model monitoring, retrained with recent data, added scheduled retraining. Result — model performance restored, ongoing monitoring prevents silent degradation.",
+            "follow_up": ["How do you monitor data drift in production?", "What's your model retraining strategy?"],
+            "keywords": ["model monitoring", "data drift", "production ML", "retraining"],
+            "improvement_tip": "Emphasize lessons learned and the preventive system you built — shows growth mindset."
+          }
+        ],
+        "hr": [
+          {
+            "id": "DS-M-H-001",
+            "question": "How do you prioritize multiple data projects with competing deadlines?",
+            "category": "Project Management",
+            "difficulty": "medium",
+            "model_answer": "Framework: 1) Business value — align with company OKRs, estimate ROI impact. 2) Effort estimation — rough implementation timeline. 3) Dependencies — which projects unblock others? 4) Stakeholder urgency — distinguish urgent-important matrix. Communicate trade-offs clearly to stakeholders. Use project management tools (Jira, Trello) for visibility.",
+            "follow_up": ["How do you handle a stakeholder who keeps changing requirements?"],
+            "keywords": ["prioritization", "stakeholder management", "ROI", "project management"],
+            "improvement_tip": "Show that you align technical work to business outcomes — that's what senior stakeholders value."
+          }
+        ]
+      },
+      "senior": {
+        "technical": [
+          {
+            "id": "DS-S-T-001",
+            "question": "Design an end-to-end MLOps pipeline for a fraud detection system.",
+            "category": "MLOps",
+            "difficulty": "hard",
+            "model_answer": "Components: 1) Data Ingestion — streaming (Kafka) for real-time transactions + batch historical data. 2) Feature Store (Feast/Tecton) — consistent features for training and serving. 3) Training Pipeline — automated with Kubeflow/MLflow; track experiments, register models. 4) Model Registry — versioning, staging, champion-challenger. 5) Serving — REST API with sub-100ms latency for online inference. 6) Monitoring — data drift, model performance, business KPIs. 7) Retraining — triggered by drift detection or scheduled. IBM Watson Studio covers many of these components.",
+            "follow_up": ["How do you handle concept drift in fraud detection?", "What's your strategy for A/B testing models?"],
+            "keywords": ["MLOps", "feature store", "model registry", "monitoring", "retraining"],
+            "improvement_tip": "Reference specific tools and services — shows real production experience vs academic knowledge."
+          }
+        ],
+        "behavioral": [
+          {
+            "id": "DS-S-B-001",
+            "question": "How do you build a data-driven culture in an organization that is not data-mature?",
+            "category": "Leadership",
+            "difficulty": "hard",
+            "model_answer": "Strategy: 1) Start with quick wins — small, high-visibility projects that show ROI. 2) Democratize data — self-serve dashboards so non-technical teams access insights. 3) Data literacy — run workshops on basic analytics for business teams. 4) Embed data in decisions — push for data requirements in project kick-offs. 5) Build trust — transparent model explanations, honest uncertainty communication. 6) Executive sponsorship — find a champion in leadership.",
+            "follow_up": ["How do you handle resistance from business teams who distrust models?"],
+            "keywords": ["data culture", "data literacy", "change management", "data democratization"],
+            "improvement_tip": "Show that you understand organizational dynamics — technical skills alone don't transform companies."
+          }
+        ],
+        "hr": [
+          {
+            "id": "DS-S-H-001",
+            "question": "Describe your approach to building and scaling a data science team.",
+            "category": "Team Building",
+            "difficulty": "hard",
+            "model_answer": "Structure: define specializations (ML engineers, data engineers, analysts) based on product needs. Hiring: focus on problem-solving mindset over tool knowledge; use take-home projects. Onboarding: clear documentation, buddy system, first contribution within week 1. Growth: individual development plans, clear leveling guides. Culture: blameless postmortems, experimentation encouraged, knowledge sharing rituals.",
+            "follow_up": ["How do you evaluate a data scientist's performance?"],
+            "keywords": ["team building", "hiring", "onboarding", "data science culture"],
+            "improvement_tip": "Show people leadership skills alongside technical expertise — senior roles require both."
+          }
+        ]
+      }
+    },
+    "product_manager": {
+      "entry": {
+        "technical": [
+          {
+            "id": "PM-E-T-001",
+            "question": "What metrics would you define to measure the success of a new feature launch?",
+            "category": "Product Metrics",
+            "difficulty": "easy",
+            "model_answer": "Framework — HEART (Happiness, Engagement, Adoption, Retention, Task Success) by Google. For a new feature: Adoption (% of users who used the feature), Engagement (frequency, session depth), Retention (D1/D7/D30 retention of feature users), Task Success (completion rate, error rate), Satisfaction (NPS/CSAT for feature). Also define guardrail metrics (things that should NOT regress).",
+            "follow_up": ["How do you differentiate a leading metric from a lagging metric?", "What is an OKR?"],
+            "keywords": ["HEART metrics", "adoption", "retention", "engagement", "guardrail metrics"],
+            "improvement_tip": "Define metrics before building the feature — shows disciplined product thinking."
+          }
+        ],
+        "behavioral": [
+          {
+            "id": "PM-E-B-001",
+            "question": "How do you prioritize a product backlog?",
+            "category": "Product Strategy",
+            "difficulty": "easy",
+            "model_answer": "Frameworks: RICE (Reach x Impact x Confidence / Effort) for quantitative scoring. MoSCoW (Must, Should, Could, Won't) for categorization. Process: gather inputs from customers (user research, support tickets, NPS), business (revenue impact, strategic alignment), engineering (effort, tech debt). Stack rank using value/effort. Communicate rationale to stakeholders transparently.",
+            "follow_up": ["How do you handle urgent requests from the sales team that disrupt your roadmap?"],
+            "keywords": ["RICE", "MoSCoW", "backlog prioritization", "roadmap", "stakeholder alignment"],
+            "improvement_tip": "Tie every prioritization decision to business goals and user impact — that's the PM's core job."
+          }
+        ],
+        "hr": [
+          {
+            "id": "PM-E-H-001",
+            "question": "Tell me about a time you had to influence without authority.",
+            "category": "Influence & Leadership",
+            "difficulty": "easy",
+            "model_answer": "STAR: Situation — engineering team resistant to changing API architecture. Task — needed buy-in without direct authority. Action — prepared data-driven proposal (user pain points, competitor analysis), identified engineering champions, addressed concerns, offered to run a 2-sprint pilot. Result — team agreed to pilot, full rollout after validation. Lesson: influence through credibility, collaboration, and reducing the 'ask'.",
+            "follow_up": ["What do you do when you can't persuade a skeptical engineer?"],
+            "keywords": ["influence", "cross-functional", "buy-in", "collaboration"],
+            "improvement_tip": "Show empathy for the other party's constraints — that's what makes influence authentic."
+          }
+        ]
+      }
+    },
+    "devops_engineer": {
+      "entry": {
+        "technical": [
+          {
+            "id": "DO-E-T-001",
+            "question": "Explain the difference between Docker and a Virtual Machine.",
+            "category": "Containerization",
+            "difficulty": "easy",
+            "model_answer": "VMs virtualize hardware — each VM has its own full OS, kernel, and resources managed by a hypervisor (VMware, KVM). Heavier (~GBs), slower startup (minutes). Containers virtualize the OS — share the host kernel, isolated at process level (namespaces, cgroups). Lighter (~MBs), fast startup (seconds). Docker packages app + dependencies into a container image (Dockerfile to image to container). Use VMs for OS-level isolation; use containers for microservices, CI/CD, efficient resource utilization.",
+            "follow_up": ["What are container namespaces and cgroups?", "How does a multi-stage Dockerfile work?"],
+            "keywords": ["Docker", "VM", "containers", "namespaces", "cgroups"],
+            "improvement_tip": "Mention Kubernetes as the production orchestration layer — it's expected in senior conversations."
+          },
+          {
+            "id": "DO-E-T-002",
+            "question": "What is a CI/CD pipeline? Describe its stages.",
+            "category": "DevOps Practices",
+            "difficulty": "easy",
+            "model_answer": "CI/CD automates the path from code commit to production deployment. Stages: 1) Source — code push triggers pipeline. 2) Build — compile, create artifacts, Docker image build. 3) Test — unit tests, integration tests, security scans. 4) Staging — deploy to staging environment, run smoke tests. 5) Approval — manual gate for production (optional). 6) Deploy — blue-green or canary deployment to production. 7) Monitor — post-deployment health checks, rollback if needed.",
+            "follow_up": ["What is blue-green deployment vs canary?", "How do you implement rollback?"],
+            "keywords": ["CI/CD", "pipeline", "automated testing", "deployment", "quality gates"],
+            "improvement_tip": "Mention the tools you have personally used — concrete experience beats theory."
+          }
+        ],
+        "behavioral": [
+          {
+            "id": "DO-E-B-001",
+            "question": "Describe a production incident you handled. What was your process?",
+            "category": "Incident Management",
+            "difficulty": "easy",
+            "model_answer": "STAR: Situation — production database CPU spike causing API timeouts. Task — restore service and identify root cause. Action — Incident response: alert → acknowledge → triage (runbook), identify suspect (slow query from new deploy), rollback deployment, confirm recovery. Post-incident: RCA (root cause analysis), 5 Whys, blameless postmortem, action items. Result — MTTR reduced by 40% with better alerting.",
+            "follow_up": ["How do you run a blameless postmortem?", "What is your on-call rotation philosophy?"],
+            "keywords": ["incident response", "RCA", "postmortem", "MTTR", "runbook"],
+            "improvement_tip": "Show the blameless postmortem mindset — it signals engineering maturity and good culture fit."
+          }
+        ],
+        "hr": [
+          {
+            "id": "DO-E-H-001",
+            "question": "How do you balance speed of delivery with system stability?",
+            "category": "Engineering Culture",
+            "difficulty": "easy",
+            "model_answer": "Framework: invest in automation to gain speed without sacrificing quality. Strong CI/CD with automated testing provides a safety net. Feature flags decouple deployment from release. Error budgets (SRE concept): if error budget is healthy, move fast; if depleted, focus on reliability. Communicate trade-offs to product. Chaos engineering proactively surfaces weaknesses.",
+            "follow_up": ["What is an error budget?", "How do you decide when to take on technical debt?"],
+            "keywords": ["error budget", "feature flags", "SRE", "reliability", "speed vs stability"],
+            "improvement_tip": "Reference SRE principles and Google's SRE Book — shows industry-standard thinking."
+          }
+        ]
+      }
+    }
+  },
+  "behavioral_frameworks": {
+    "STAR": {
+      "description": "Situation-Task-Action-Result framework for behavioral questions",
+      "steps": ["Describe the Situation (context)", "Explain your Task/role", "Detail the Actions you took", "Share the Result with metrics"],
+      "tips": "Keep Situation/Task brief (20%). Spend most time on Action (60%) and Result (20%). Quantify outcomes."
+    },
+    "CAR": {
+      "description": "Context-Action-Result — a condensed version of STAR",
+      "steps": ["Set the Context", "Describe Actions taken", "Quantify the Result"],
+      "tips": "Use for shorter, concise behavioral answers in fast-paced interviews."
+    }
+  }
+}

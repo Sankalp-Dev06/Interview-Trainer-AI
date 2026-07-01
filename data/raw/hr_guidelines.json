@@ -1,0 +1,192 @@
+{
+  "version": "1.0",
+  "hr_guidelines": {
+    "interview_process_stages": {
+      "application_review": {
+        "what_hr_looks_for": [
+          "Relevant experience and skills matching the JD",
+          "Quantified achievements (numbers, percentages, scale)",
+          "Clean, readable resume format (no clutter)",
+          "Consistent career progression",
+          "Keywords matching the ATS (Applicant Tracking System)"
+        ],
+        "resume_tips": [
+          "Use action verbs: Built, Designed, Led, Reduced, Improved, Launched",
+          "Quantify impact: 'Improved API response time by 35%', not 'worked on API improvements'",
+          "Tailor resume keywords to match the specific job description",
+          "Keep to 1 page for <5 years experience, max 2 pages for senior roles",
+          "Use a clean ATS-friendly format — avoid tables, columns, graphics"
+        ]
+      },
+      "phone_screen": {
+        "duration": "30-45 minutes",
+        "conducted_by": "HR / Recruiter",
+        "what_to_expect": [
+          "Walk me through your resume",
+          "Why are you interested in this role?",
+          "Current/expected CTC",
+          "Notice period",
+          "Role-specific high-level technical question"
+        ],
+        "preparation_tips": [
+          "Have your resume in front of you",
+          "Prepare a 90-second 'About Me' pitch",
+          "Research the company's recent news and products",
+          "Have 2-3 thoughtful questions ready for the recruiter",
+          "Be in a quiet location with good phone signal"
+        ]
+      },
+      "technical_interview": {
+        "duration": "45-60 minutes per round",
+        "conducted_by": "Hiring manager / Senior engineer",
+        "common_formats": [
+          "Live coding on shared IDE (HackerRank, CoderPad)",
+          "Whiteboard system design",
+          "Take-home project (24-48 hour window)",
+          "Pair programming exercise"
+        ],
+        "preparation_tips": [
+          "Think aloud — interviewers evaluate your reasoning process",
+          "Clarify requirements before coding (edge cases, constraints)",
+          "Start with brute force, then optimize",
+          "Write clean, readable code with meaningful variable names",
+          "Test your code with example inputs before declaring done"
+        ]
+      },
+      "behavioral_interview": {
+        "duration": "30-45 minutes",
+        "conducted_by": "HR / Hiring manager / Cross-functional stakeholder",
+        "question_themes": [
+          "Leadership and influence",
+          "Conflict resolution",
+          "Dealing with ambiguity",
+          "Failure and learning",
+          "Collaboration and teamwork",
+          "Time management under pressure"
+        ],
+        "preparation_tips": [
+          "Prepare 8-10 STAR stories covering different competencies",
+          "Each story should be under 3 minutes when spoken",
+          "Have stories that can answer multiple question themes",
+          "Be honest — authenticity matters more than polish",
+          "End every story with a lesson learned or long-term impact"
+        ]
+      },
+      "final_interview": {
+        "duration": "30-60 minutes",
+        "conducted_by": "Hiring manager / Director / VP",
+        "focus_areas": [
+          "Cultural fit and values alignment",
+          "Strategic vision alignment",
+          "Compensation and logistics",
+          "Long-term career goals"
+        ],
+        "preparation_tips": [
+          "Research the interviewer on LinkedIn",
+          "Prepare thoughtful questions about team culture, challenges, roadmap",
+          "Be ready to discuss your 30-60-90 day plan",
+          "Show genuine enthusiasm and specific knowledge about the company"
+        ]
+      }
+    },
+    "common_hr_questions": [
+      {
+        "question": "Tell me about yourself.",
+        "framework": "Present-Past-Future",
+        "guidance": "Start with current role/status (30s), highlight 2 relevant past experiences (45s), explain future goals and why this role (30s). Total: ~2 minutes."
+      },
+      {
+        "question": "What is your greatest strength?",
+        "framework": "Claim-Evidence-Impact",
+        "guidance": "State the strength, give a specific work example, explain the impact. Align with the role requirements."
+      },
+      {
+        "question": "What is your greatest weakness?",
+        "framework": "Real-Acknowledge-Improve",
+        "guidance": "Give a real (but not disqualifying) weakness. Show self-awareness. Describe concrete steps you are taking to improve. Show progress."
+      },
+      {
+        "question": "Why do you want to work here?",
+        "framework": "Company-Role-Growth",
+        "guidance": "Research thoroughly. Connect 3 things: company mission/product you admire, specific role details that excite you, how it fits your career growth."
+      },
+      {
+        "question": "Where do you see yourself in 5 years?",
+        "framework": "Growth-Contribution-Commitment",
+        "guidance": "Show growth ambition, contribution to company goals, and implicit commitment to stay and grow with the company."
+      },
+      {
+        "question": "Why are you leaving your current job?",
+        "framework": "Forward-looking, positive framing",
+        "guidance": "Never badmouth. Focus on growth opportunities you seek. Frame as moving toward something, not away from something."
+      },
+      {
+        "question": "Do you have any questions for us?",
+        "framework": "Research-based questions",
+        "guidance": "Always have 3-4 questions ready. Ask about: team culture, biggest challenge in the role, how success is measured, growth opportunities."
+      }
+    ],
+    "body_language_and_communication": {
+      "virtual_interview": [
+        "Test camera, microphone, and internet 30 minutes before",
+        "Use a clean, professional background or virtual background",
+        "Look at the camera (not the screen) to simulate eye contact",
+        "Use structured pauses — silence is better than filler words",
+        "Dress professionally from head to toe (builds confidence)",
+        "Have a glass of water nearby"
+      ],
+      "in_person_interview": [
+        "Arrive 10 minutes early",
+        "Firm handshake, confident posture, smile",
+        "Maintain natural eye contact (don't stare)",
+        "Avoid crossing arms or fidgeting",
+        "Bring printed copies of your resume",
+        "Take brief notes if allowed — shows engagement"
+      ]
+    },
+    "post_interview": {
+      "follow_up": {
+        "timing": "Within 24 hours of interview",
+        "content": [
+          "Thank the interviewer by name",
+          "Reference a specific topic from the conversation",
+          "Reiterate your enthusiasm for the role",
+          "Keep it concise — 3-5 sentences max"
+        ],
+        "example": "Dear [Name], Thank you for taking the time to speak with me today about the [Role] position at [Company]. Our discussion about [specific technical topic or project] reinforced my excitement about contributing to your team. I look forward to hearing about the next steps. Best regards, [Your Name]"
+      },
+      "offer_negotiation": {
+        "principles": [
+          "Always negotiate — most offers have 10-20% flexibility",
+          "Have a competing offer or market data to anchor negotiation",
+          "Negotiate total compensation: base, bonus, equity, signing bonus, benefits",
+          "Be collaborative, not adversarial — 'I'm very excited about this offer...'",
+          "Get the offer in writing before making decisions"
+        ]
+      }
+    },
+    "industry_competency_frameworks": {
+      "Amazon": {
+        "framework": "Leadership Principles (LPs)",
+        "principles": ["Customer Obsession", "Ownership", "Invent & Simplify", "Are Right A Lot", "Learn & Be Curious", "Hire & Develop Best", "Insist on Highest Standards", "Think Big", "Bias for Action", "Frugality", "Earn Trust", "Dive Deep", "Have Backbone; Disagree & Commit", "Deliver Results"],
+        "preparation_tip": "Have 1-2 STAR stories for each LP. Amazon interviewers explicitly map stories to LPs."
+      },
+      "Google": {
+        "framework": "Googliness and Attributes",
+        "attributes": ["Cognitive ability (problem-solving)", "Leadership", "Role-related knowledge", "Googleyness (comfort with ambiguity, collaboration, honesty)"],
+        "preparation_tip": "Google focuses heavily on how you think. Show your reasoning process, not just the answer."
+      },
+      "IBM": {
+        "framework": "IBM Values & Competencies",
+        "values": ["Dedication to every client's success", "Innovation that matters", "Trust and personal responsibility"],
+        "competencies": ["Adaptability", "Client Focus", "Communication", "Creative Problem Solving", "Drive to Achieve", "Influence"],
+        "preparation_tip": "IBM interviewers look for alignment with IBM values. Research IBM's current focus areas (AI, Cloud, Sustainability)."
+      },
+      "Microsoft": {
+        "framework": "Growth Mindset & Culture",
+        "attributes": ["Growth mindset", "Customer focus", "Diverse and inclusive", "One Microsoft (collaboration)", "Make a difference"],
+        "preparation_tip": "Microsoft shifted from 'know-it-alls' to 'learn-it-alls'. Emphasize learning from failure and growth."
+      }
+    }
+  }
+}
