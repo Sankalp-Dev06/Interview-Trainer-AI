@@ -21,6 +21,9 @@ pyyaml>=6.0                    # YAML config file parser
 numpy>=1.24.0                  # Numerical arrays for embeddings
 pandas>=1.5.3                  # Data manipulation and analytics
 
+# ---- Web App ------------------------------------------------
+streamlit>=1.35.0              # Streamlit web application framework
+
 # ---- Jupyter & Visualization --------------------------------
 notebook>=6.5.0                # Jupyter notebook runtime
 ipython>=8.0.0                 # IPython kernel

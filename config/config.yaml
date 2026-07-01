@@ -5,32 +5,32 @@
 
 # ---- IBM Cloud Credentials --------------------------------
 ibm_cloud:
-  api_key: "${IBM_CLOUD_API_KEY}"           # Set in environment variable
-  region: "us-south"                         # IBM Cloud region
-  resource_instance_id: "${IBM_COS_INSTANCE_ID}"  # IBM Cloud Object Storage
+  api_key: "${WATSONX_API_KEY}"
+  region: "eu-de"
+  resource_instance_id: "${IBM_COS_INSTANCE_ID}"
 
 # ---- IBM watsonx.ai Settings ------------------------------
 watsonx:
-  url: "https://us-south.ml.cloud.ibm.com"
-  project_id: "${WATSONX_PROJECT_ID}"       # Your watsonx.ai project ID
-  api_key: "${IBM_CLOUD_API_KEY}"
+  url: "${WATSONX_URL}"
+  project_id: "${WATSONX_PROJECT_ID}"
+  api_key: "${WATSONX_API_KEY}"
 
   # IBM Granite Model Selection
   llm:
-    model_id: "ibm/granite-13b-chat-v2"     # Primary: IBM Granite Chat model
+    model_id: "${GRANITE_MODEL_ID}"
     fallback_model_id: "ibm/granite-3-8b-instruct"
     parameters:
-      max_new_tokens: 1024
-      min_new_tokens: 50
-      temperature: 0.7
+      max_new_tokens: 900
+      min_new_tokens: 10
+      temperature: 0.4
       top_p: 0.9
       top_k: 50
       repetition_penalty: 1.1
-      decoding_method: "sample"             # "greedy" for deterministic output
+      decoding_method: "sample"
 
   # Embedding Model
   embedding:
-    model_id: "ibm/slate-125m-english-rtrvr"   # IBM Slate embedding model
+    model_id: "${EMBEDDING_MODEL_ID}"
     batch_size: 32
     normalize_embeddings: true
 

@@ -113,8 +113,16 @@ class EmbeddingEngine:
         for i in range(0, len(texts), batch_size):
             batch = texts[i: i + batch_size]
             response = self._model.embed_documents(texts=batch)
-            # IBM SDK returns list of embedding vectors
-            batch_vecs = [item["embedding"] for item in response["results"]]
+            # SDK shape varies by version:
+            #   ≥1.1  → list of vectors  [[0.1, ...], ...]
+            #   <1.1  → {"results": [{"embedding": [...]}, ...]}
+            if isinstance(response, list):
+                batch_vecs = [
+                    item["embedding"] if isinstance(item, dict) else item
+                    for item in response
+                ]
+            else:
+                batch_vecs = [item["embedding"] for item in response["results"]]
             all_embeddings.extend(batch_vecs)
             logger.debug(f"Embedded batch {i//batch_size + 1} ({len(batch)} texts)")
 
