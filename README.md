@@ -1,72 +1,58 @@
-# 🎓 Interview Trainer Agent
+# Interview Trainer Agent
 ### Powered by IBM Granite (watsonx.ai) + RAG | Problem Statement No. 22
-
----
 
 An AI-powered Interview Trainer Agent built on **IBM Cloud** using **IBM Granite** foundation models and a **RAG (Retrieval-Augmented Generation)** architecture. It prepares users for job interviews by generating tailored question sets, model answers, improvement tips, and personalized preparation strategies based on their profile, experience level, and target job role.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                   Interview Trainer Agent (IBM Cloud)                │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                       │
-│  User Input (Name, Role, Level, Question)                            │
-│       │                                                               │
-│       ▼                                                               │
-│  ┌──────────────────┐    ┌─────────────────────────────────────────┐ │
-│  │   RAG Pipeline   │    │        IBM watsonx.ai                   │ │
-│  │                  │    │  ┌─────────────────────────────────┐    │ │
-│  │  1. Query        │───▶│  │  IBM Slate Embedding Model       │    │ │
-│  │  2. Embed Query  │    │  │  (slate-125m-english-rtrvr)      │    │ │
-│  │  3. Retrieve     │    │  └─────────────────────────────────┘    │ │
-│  │  4. Augment      │    │  ┌─────────────────────────────────┐    │ │
-│  │  5. Generate     │───▶│  │  IBM Granite LLM                 │    │ │
-│  └──────────────────┘    │  │  (granite-13b-chat-v2)           │    │ │
-│       │                   │  └─────────────────────────────────┘    │ │
-│       │                   └─────────────────────────────────────────┘ │
-│       ▼                                                               │
-│  ┌──────────────────────────────────────┐                            │
-│  │         FAISS Vector Store            │                            │
-│  │   (Interview Q's, HR Guidelines,     │                            │
-│  │    Job Roles, Industry Insights)     │                            │
-│  └──────────────────────────────────────┘                            │
-│                                                                       │
-│  Output: Personalized Interview Prep Plan, Scored Feedback, Tips     │
-└─────────────────────────────────────────────────────────────────────┘
+User Input (Name, Role, Level, Question)
+        |
+        v
+  ┌─────────────────────────────────────────────────────────┐
+  │                     RAG Pipeline                         │
+  │                                                          │
+  │  1. Embed query  ──►  IBM Slate (slate-125m-rtrvr)       │
+  │  2. Retrieve     ──►  FAISS Vector Store                 │
+  │                        (Interview Q's, HR Guidelines,    │
+  │                         Job Roles, Industry Insights)    │
+  │  3. Augment prompt with retrieved context                │
+  │  4. Generate     ──►  IBM Granite (granite-13b-chat-v2)  │
+  └─────────────────────────────────────────────────────────┘
+        |
+        v
+  Personalized Prep Plan · Model Answers · Scored Feedback
 ```
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 interview_trainer_agent/
 │
 ├── notebooks/
-│   └── Interview_Trainer_Agent.ipynb  ← Main IBM Watson Studio notebook
+│   └── Interview_Trainer_Agent.ipynb  ← Main IBM Watson Studio notebook (19 cells)
 │
-├── src/                               ← Python source modules
+├── src/
 │   ├── __init__.py
-│   ├── config_loader.py               ← YAML config + env var resolver
-│   ├── data_processor.py              ← JSON dataset → Document objects
-│   ├── embedding_engine.py            ← IBM Slate / SentenceTransformer
-│   ├── vector_store.py                ← FAISS vector index (build/load/search)
-│   ├── llm_client.py                  ← IBM Granite inference client
+│   ├── config_loader.py               ← YAML config + ${ENV_VAR} resolver
+│   ├── data_processor.py              ← JSON datasets → Document objects
+│   ├── embedding_engine.py            ← IBM Slate embeddings / local fallback
+│   ├── vector_store.py                ← FAISS build / save / load / search
+│   ├── llm_client.py                  ← IBM Granite inference + prompt templates
 │   └── rag_pipeline.py                ← End-to-end RAG orchestrator
 │
 ├── data/
-│   ├── raw/                           ← Knowledge base (JSON datasets)
-│   │   ├── interview_questions.json   ← 50+ Q&A: Technical, Behavioral, HR
-│   │   ├── hr_guidelines.json         ← Interview stages, HR tips, frameworks
+│   ├── raw/
+│   │   ├── interview_questions.json   ← 40+ Q&A: Technical, Behavioral, HR
+│   │   ├── hr_guidelines.json         ← Interview stages, company frameworks
 │   │   ├── job_roles.json             ← Role definitions & prep strategies
-│   │   └── industry_insights.json     ← Trends, salary data, company styles
-│   ├── processed/                     ← Processed document chunks (auto-generated)
-│   └── embeddings/                    ← FAISS index files (auto-generated)
-│       └── faiss_index/
+│   │   └── industry_insights.json     ← 2025 trends, salary data, company styles
+│   ├── processed/                     ← Auto-generated document chunks
+│   └── embeddings/faiss_index/        ← Auto-generated vector index
 │
 ├── config/
 │   └── config.yaml                    ← IBM Cloud & RAG configuration
@@ -74,132 +60,160 @@ interview_trainer_agent/
 ├── tests/
 │   └── test_pipeline.py               ← Unit tests for core components
 │
-├── outputs/                           ← Generated reports (auto-created)
+├── outputs/
 │   ├── sessions/                      ← Per-session prep plans & evaluations
 │   └── logs/                          ← Application logs
 │
-├── requirements.txt                   ← Python dependencies
-├── setup.py                           ← Package setup
-├── .env.example                       ← Environment variable template
-├── DEPLOYMENT.md                      ← IBM Cloud deployment guide
-└── README.md                          ← This file
+├── requirements.txt
+├── setup.py
+└── README.md
 ```
 
 ---
 
-## 🚀 Quick Start on IBM Watson Studio
+## Quick Start on IBM Watson Studio
 
 ### Prerequisites
 - IBM Cloud account (free): [cloud.ibm.com/registration](https://cloud.ibm.com/registration)
-- IBM Watson Studio project (Lite — free)
+- IBM Watson Studio instance (Lite — free)
 - IBM watsonx.ai project (free tier)
 
-### Step 1: Get IBM Cloud Credentials
+### Step 1 — Get IBM Cloud credentials
+
+1. Go to [dataplatform.cloud.ibm.com](https://dataplatform.cloud.ibm.com) → **New project**
+2. Copy **Project ID** from: Project → Manage → General → Project ID
+3. Create **API Key**: IBM Cloud → Manage → Access (IAM) → API Keys → Create
+
+### Step 2 — Upload project to Watson Studio
+
+**Option A — Git integration (recommended)**
 ```
-1. Create watsonx.ai project → copy the Project ID
-2. Create IBM Cloud API Key: Manage → Access (IAM) → API Keys
+Project → Manage → Git Integration → connect your repo → Sync
 ```
 
-### Step 2: Upload Project to Watson Studio
+**Option B — Manual upload**
 ```
-Watson Studio → New Project → Add Assets → Upload all project files
+Project → Assets → New asset → Upload files
+Upload: notebooks/, src/, data/raw/, config/config.yaml, requirements.txt
 ```
 
-### Step 3: Set Environment Variables in Notebook
+### Step 3 — Set credentials in the notebook
+
+Open `notebooks/Interview_Trainer_Agent.ipynb`, Cell 3:
+
 ```python
 import os
-os.environ['IBM_CLOUD_API_KEY']  = 'your-api-key'
-os.environ['WATSONX_PROJECT_ID'] = 'your-project-id'
+os.environ['IBM_CLOUD_API_KEY']  = 'your-api-key-here'
+os.environ['WATSONX_PROJECT_ID'] = 'your-project-id-here'
 ```
 
-### Step 4: Run the Notebook
+Or set them permanently via **Project → Manage → Environments → Environment variables**.
+
+### Step 4 — Run the notebook
+
 ```
-Open notebooks/Interview_Trainer_Agent.ipynb
-→ Kernel → Restart & Run All
+Kernel → Restart & Run All
 ```
 
-> **Stub Mode:** If credentials are not set, the notebook runs in stub mode — all retrieval, indexing, and session features work; only IBM Granite generation is replaced by context-forwarding stubs. This lets you explore the full pipeline before configuring IBM credentials.
+- **Cell 1** installs all packages — restart kernel after it completes
+- **Cell 6** builds the FAISS index on first run (~30–60 seconds), then caches it
+- **Cell 9** calls IBM Granite and generates your personalized prep plan
+
+> **Stub mode:** Without credentials, every pipeline feature (indexing, retrieval, analytics, sessions) still runs fully. Only LLM responses are replaced by context passthrough stubs. Configure credentials to activate IBM Granite generation.
 
 ---
 
-## 💡 Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
-| **Personalized Prep Plan** | Full interview plan (questions + model answers + strategy) tailored to name, role, level |
+| **Personalized Prep Plan** | Full question set + model answers + strategy tailored to name, role, and level |
 | **Question Deep-Dive** | Detailed guidance on any specific question with follow-ups and tips |
-| **Answer Evaluator** | Score (1-10) + strengths + improvement tips + improved answer version |
+| **Answer Evaluator** | Score (1–10) + strengths + improvement tips + improved answer version |
 | **Multi-Role Support** | Software Engineer, Data Scientist, Product Manager, DevOps Engineer |
-| **Multi-Level Support** | Entry (0-2yr), Mid (3-6yr), Senior (7+yr) |
-| **STAR Framework** | Behavioral questions guided by Situation-Task-Action-Result structure |
+| **Multi-Level Support** | Entry (0–2 yr), Mid (3–6 yr), Senior (7+ yr) |
+| **STAR Framework** | All behavioral questions coached with Situation-Task-Action-Result structure |
 | **Industry Insights** | Salary ranges, hot skills, hiring trends, company-specific interview styles |
-| **Visual Analytics** | Knowledge base analytics and personalized preparation roadmap charts |
-| **Session Reports** | Automatically saved Markdown reports for each session |
-| **IBM Granite LLM** | Primary: `ibm/granite-13b-chat-v2` via watsonx.ai |
-| **IBM Slate Embeddings** | `ibm/slate-125m-english-rtrvr` for semantic retrieval |
+| **Visual Analytics** | Knowledge base analytics chart + personalized preparation roadmap |
+| **Session Reports** | Auto-saved Markdown reports to `outputs/sessions/` |
 
 ---
 
-## 🗄️ Knowledge Base
+## Knowledge Base
 
-| Dataset | Contents |
-|---------|---------|
-| `interview_questions.json` | 50+ Q&A with model answers across 4 roles × 3 levels × 3 types |
-| `hr_guidelines.json` | Interview stages, common HR questions, company frameworks (IBM, Amazon, Google, Microsoft) |
-| `job_roles.json` | Role definitions, required skills, interview rounds, preparation strategies |
-| `industry_insights.json` | 2024-2025 hiring trends, salary ranges, company interview styles, success metrics |
-
----
-
-## 🧑‍💻 IBM Granite Models Used
-
-| Purpose | Model ID | Notes |
-|---------|----------|-------|
-| **Primary LLM** | `ibm/granite-13b-chat-v2` | Main generation model |
-| **Fallback LLM** | `ibm/granite-3-8b-instruct` | Lighter, faster variant |
-| **Embeddings** | `ibm/slate-125m-english-rtrvr` | Semantic retrieval |
-
-All models are available on IBM watsonx.ai **Lite (free)** plan.
+| File | Contents |
+|------|---------|
+| `interview_questions.json` | 40+ Q&A across 4 roles × 3 levels × 3 types (Technical, Behavioral, HR) with model answers, follow-ups, and improvement tips |
+| `hr_guidelines.json` | Interview stages, common HR questions, IBM / Amazon / Google / Microsoft competency frameworks |
+| `job_roles.json` | Role definitions, required skills, interview rounds, 4–8 week preparation strategies |
+| `industry_insights.json` | 2024–2025 hiring trends, salary ranges, company interview styles, common failure reasons |
 
 ---
 
-## 🔧 Local Development
+## IBM Cloud Services & Models
+
+| Service / Model | ID / Plan | Purpose |
+|-----------------|-----------|---------|
+| IBM Watson Studio | Lite (free) | Jupyter notebook hosting |
+| IBM Granite LLM | `ibm/granite-13b-chat-v2` | Personalized answer & plan generation |
+| IBM Granite fallback | `ibm/granite-3-8b-instruct` | Lighter, faster variant |
+| IBM Slate Embeddings | `ibm/slate-125m-english-rtrvr` | Semantic document retrieval |
+| IBM Cloud Object Storage | Lite (25 GB free) | Optional: FAISS index persistence |
+
+All models are available on the watsonx.ai **Lite (free)** plan.
+
+---
+
+## Region Configuration
+
+The default region is `us-south`. Update `config/config.yaml` line 14 if your account is in a different region:
+
+| Region | URL |
+|--------|-----|
+| US South (default) | `https://us-south.ml.cloud.ibm.com` |
+| EU Frankfurt | `https://eu-de.ml.cloud.ibm.com` |
+| EU London | `https://eu-gb.ml.cloud.ibm.com` |
+| Tokyo | `https://jp-tok.ml.cloud.ibm.com` |
+
+---
+
+## Local Development
 
 ```bash
-# Clone / download the project
+# Clone the project
 git clone <your-repo-url>
 cd interview_trainer_agent
 
-# Create virtual environment
+# Create and activate virtual environment
 python -m venv venv
-source venv/bin/activate     # Windows: venv\Scripts\activate
+source venv/bin/activate        # Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Set environment variables
-cp .env.example .env
-# Edit .env with your IBM Cloud credentials
+# Set credentials as environment variables
+export IBM_CLOUD_API_KEY=your-api-key-here
+export WATSONX_PROJECT_ID=your-project-id-here
+# Windows: set IBM_CLOUD_API_KEY=your-api-key-here
 
 # Run unit tests
 python -m pytest tests/ -v
 
-# Launch Jupyter notebook
+# Launch notebook
 jupyter notebook notebooks/Interview_Trainer_Agent.ipynb
 ```
 
 ---
 
-## 🏃 Programmatic Usage
+## Programmatic Usage
 
 ```python
 from src.rag_pipeline import InterviewRAGPipeline
 
-# Initialize pipeline
 pipeline = InterviewRAGPipeline(config_path='config/config.yaml')
-pipeline.initialize()
+pipeline.initialize()  # builds FAISS index on first run, loads from cache after
 
-# Generate a full prep plan
+# Generate a full personalized prep plan
 result = pipeline.generate_prep_plan(
     name="Arjun Sharma",
     role="software_engineer",
@@ -216,7 +230,7 @@ guidance = pipeline.get_question_guidance(
 )
 print(guidance['guidance'])
 
-# Evaluate your practice answer
+# Evaluate a practice answer
 feedback = pipeline.evaluate_candidate_answer(
     name="Arjun Sharma",
     role="software_engineer",
@@ -229,32 +243,27 @@ print(feedback['feedback'])
 
 ---
 
-## 📊 IBM Cloud Services Used
-
-| Service | Plan | Purpose |
-|---------|------|---------|
-| **IBM Watson Studio** | Lite (free) | Jupyter notebook hosting |
-| **IBM watsonx.ai** | Lite (free) | IBM Granite LLM + IBM Slate Embeddings |
-| **IBM Cloud Object Storage** | Lite (25 GB free) | Optional: index persistence |
-
----
-
-## 📋 Deployment
-
-See [`DEPLOYMENT.md`](DEPLOYMENT.md) for full step-by-step IBM Cloud deployment instructions including Watson Studio setup, environment variables, and IBM Code Engine containerization.
-
----
-
-## 🧪 Running Tests
+## Running Tests
 
 ```bash
 python -m pytest tests/test_pipeline.py -v
 ```
 
-Expected: All tests pass. Tests that require `faiss-cpu` are auto-skipped if the package is not installed.
+Tests requiring `faiss-cpu` are automatically skipped if the package is not installed.
+
+---
+
+## Troubleshooting
+
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| `ModuleNotFoundError: ibm_watsonx_ai` | Cell 1 not run or kernel not restarted | Run Cell 1 → Kernel → Restart |
+| `ModuleNotFoundError: faiss` | Same | Same fix |
+| `LLM mode: stub` after setting credentials | Extra whitespace in key/ID | Re-copy credentials without leading/trailing spaces |
+| `FileNotFoundError: config/config.yaml` | Wrong working directory | Cell 2 runs `os.chdir(PROJECT_ROOT)` automatically |
+| `No documents loaded` | JSON files not at `data/raw/` | Upload all 4 JSON files to the correct path |
+| `IBM credentials invalid` | Wrong region endpoint | Update `watsonx.url` in `config/config.yaml` |
 
 ---
 
 *Interview Trainer Agent v1.0 | IBM Cloud + IBM Granite + watsonx.ai*
-#   I n t e r v i e w - T r a i n e r - A I  
- 
