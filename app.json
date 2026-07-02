@@ -1,0 +1,32 @@
+{
+  "name": "Interview Trainer Agent",
+  "description": "RAG-powered AI Interview Coach using IBM Granite (watsonx.ai) + FAISS + Streamlit",
+  "keywords": ["python", "streamlit", "ibm", "granite", "watsonx", "rag", "faiss", "ai"],
+  "repository": "https://github.com/your-org/interview-trainer-agent",
+
+  "env": {
+    "WATSONX_API_KEY": {
+      "description": "IBM Cloud API key for watsonx.ai authentication",
+      "required": false
+    },
+    "WATSONX_PROJECT_ID": {
+      "description": "watsonx.ai project ID (find in project Manage → General)",
+      "required": false
+    },
+    "WATSONX_URL": {
+      "description": "watsonx.ai endpoint URL",
+      "value": "https://eu-de.ml.cloud.ibm.com",
+      "required": false
+    },
+    "GRANITE_MODEL_ID": {
+      "description": "IBM Granite LLM model ID",
+      "value": "ibm-granite/granite-4.0-h-small",
+      "required": false
+    },
+    "EMBEDDING_MODEL_ID": {
+      "description": "IBM Slate embedding model ID",
+      "value": "ibm/slate-125m-english-rtrvr-v2",
+      "required": false
+    }
+  }
+}

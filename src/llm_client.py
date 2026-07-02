@@ -192,24 +192,111 @@ class GraniteLLMClient:
 
     def _generate_stub(self, prompt: str) -> str:
         """
-        Stub mode: returns a formatted response built from the context
-        embedded in the prompt. Used when IBM credentials are absent.
+        Stub mode: returns a structured demo response built from the
+        retrieved context in the prompt. Works for all prompt types.
+        Used when IBM credentials are absent.
         """
-        # Extract context section from the prompt for display
-        if "Retrieved Context" in prompt and "Task:" in prompt:
+        # Pull out whatever context was retrieved so it's still useful
+        context_section = ""
+        if "Retrieved Context" in prompt:
             start = prompt.find("Retrieved Context")
-            end = prompt.find("Task:", start)
-            context_section = prompt[start:end].strip()
-            header = (
-                "**[STUB MODE — Connect IBM watsonx.ai for full AI responses]**\n\n"
-                "Based on the retrieved knowledge base context:\n\n"
+            # End at any of the next major section markers
+            for marker in ["Task:", "Question Asked:", "Candidate's Answer:", "Evaluate"]:
+                idx = prompt.find(marker, start + 20)
+                if idx != -1:
+                    context_section = prompt[start:idx].strip()
+                    break
+            if not context_section:
+                context_section = prompt[start:start + 800].strip()
+
+        # Determine prompt type and build a role-aware demo response
+        if "Generate a comprehensive" in prompt or "PERSONALIZED QUESTION SET" in prompt:
+            # Prep plan
+            name  = self._extract_field(prompt, "Name:")
+            role  = self._extract_field(prompt, "Job Role:")
+            level = self._extract_field(prompt, "Experience Level:")
+            return (
+                f"📋 **Demo Prep Plan for {name} — {role} ({level})**\n\n"
+                "_(This is a demo response. Add your IBM watsonx.ai credentials for full AI-generated plans.)_\n\n"
+                "**1. SAMPLE QUESTION SET**\n"
+                "• Tell me about yourself and your background.\n"
+                "• Describe a challenging technical problem you solved.\n"
+                "• How do you handle tight deadlines and competing priorities?\n"
+                "• Walk me through a project you're most proud of.\n"
+                "• Where do you see yourself in 3–5 years?\n\n"
+                "**2. STAR FRAMEWORK REMINDER**\n"
+                "For every behavioural question structure your answer as:\n"
+                "**S**ituation → **T**ask → **A**ction → **R**esult\n\n"
+                "**3. PREPARATION TIPS**\n"
+                "• Research the company's products, culture, and recent news.\n"
+                "• Prepare 2–3 specific examples for behavioural questions.\n"
+                "• Practice out loud — timing matters (aim for 90–120 sec per answer).\n\n"
+                "**4. RETRIEVED CONTEXT FROM KNOWLEDGE BASE**\n"
+                f"{context_section}\n\n"
+                "---\n_Configure `WATSONX_API_KEY` and `WATSONX_PROJECT_ID` to get full IBM Granite responses._"
             )
-            return header + context_section + "\n\n_Configure your IBM Cloud API key and watsonx.ai Project ID to receive full AI-generated answers from IBM Granite._"
+
+        if "Question Asked:" in prompt or "Provide:" in prompt:
+            # Single-question guidance
+            question = self._extract_field(prompt, "Question Asked:")
+            name     = self._extract_field(prompt, "Name:")
+            role     = self._extract_field(prompt, "Job Role:")
+            return (
+                f"💡 **Guidance for: _{question}_**\n\n"
+                "_(This is a demo response. Add your IBM watsonx.ai credentials for full AI guidance.)_\n\n"
+                "**1. MODEL ANSWER (STAR format)**\n"
+                "Start by briefly setting the scene (Situation), describe your responsibility (Task), "
+                "walk through the specific steps you took (Action), and close with a measurable outcome (Result). "
+                "Keep the answer to 90–120 seconds.\n\n"
+                "**2. WHAT THE INTERVIEWER IS EVALUATING**\n"
+                "• Communication clarity and structure\n"
+                "• Self-awareness and ownership\n"
+                "• Relevance to the target role\n\n"
+                "**3. COMMON MISTAKES TO AVOID**\n"
+                "• Being too vague — always use specific examples\n"
+                "• Forgetting to quantify results (%, time saved, revenue)\n"
+                "• Talking too long — stay focused and concise\n\n"
+                "**4. LIKELY FOLLOW-UP QUESTION**\n"
+                "\"What would you do differently if you faced the same situation today?\"\n\n"
+                "**5. KNOWLEDGE BASE CONTEXT**\n"
+                f"{context_section}\n\n"
+                "---\n_Configure `WATSONX_API_KEY` and `WATSONX_PROJECT_ID` to get full IBM Granite responses._"
+            )
+
+        if "Candidate's Answer:" in prompt or "Evaluate" in prompt:
+            # Answer evaluation
+            name = self._extract_field(prompt, "Name:")
+            return (
+                f"📊 **Demo Evaluation for {name}**\n\n"
+                "_(This is a demo response. Add your IBM watsonx.ai credentials for scored feedback.)_\n\n"
+                "**SCORE: 7 / 10** _(demo score)_\n\n"
+                "**STRENGTHS**\n"
+                "• Attempted to answer directly\n"
+                "• Shows awareness of the topic\n\n"
+                "**AREAS FOR IMPROVEMENT**\n"
+                "• Add a specific real-world example using the STAR framework\n"
+                "• Quantify the outcome (e.g. '20% faster', 'saved 3 hours/week')\n"
+                "• Keep the answer under 2 minutes\n\n"
+                "**KNOWLEDGE BASE CONTEXT**\n"
+                f"{context_section}\n\n"
+                "---\n_Configure `WATSONX_API_KEY` and `WATSONX_PROJECT_ID` to get full IBM Granite responses._"
+            )
+
+        # Generic fallback
         return (
-            "**[STUB MODE]** IBM watsonx.ai credentials not configured.\n"
-            "Please set IBM_CLOUD_API_KEY and WATSONX_PROJECT_ID environment variables "
-            "to enable full IBM Granite-powered responses."
+            "⚠️ **Demo Mode** — IBM watsonx.ai credentials not configured.\n\n"
+            f"{context_section}\n\n"
+            "---\n_Add `WATSONX_API_KEY` and `WATSONX_PROJECT_ID` to enable full IBM Granite responses._"
         )
+
+    @staticmethod
+    def _extract_field(prompt: str, field: str) -> str:
+        """Extract a single-line field value from a prompt string."""
+        if field not in prompt:
+            return "N/A"
+        start = prompt.find(field) + len(field)
+        end = prompt.find("\n", start)
+        return prompt[start:end].strip(" -:")
 
     def generate_question_set(
         self,
