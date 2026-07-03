@@ -84,7 +84,6 @@ interview_trainer_agent/
 │   └── config.toml                ← Streamlit server + theme config
 │
 ├── app.json                       ← Deployment env-var manifest
-├── .env.example                   ← Credentials template (copy → .env locally)
 ├── requirements.txt
 ├── setup.py
 └── README.md
