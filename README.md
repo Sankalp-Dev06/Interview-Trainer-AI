@@ -1,5 +1,5 @@
 # 🎯 Interview Trainer Agent
-### Powered by IBM Granite (watsonx.ai) + RAG | Problem Statement No. 22
+### Powered by IBM Granite (watsonx.ai) + RAG 
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/streamlit-1.35+-red.svg)](https://streamlit.io)
